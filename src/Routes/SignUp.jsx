@@ -3,7 +3,7 @@ import {useForm} from "react-hook-form"
 import {z} from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router";
-
+import { useState } from "react";
 const schema = z.object({
     email : z.string().email("Email must be valid"),
     password: z.string().min(8,"Password must be at least 8 characters"),
@@ -12,12 +12,14 @@ const schema = z.object({
 })
 
 export default function SignUpForm(){
+
+
     const navigate = useNavigate()
     const {register,handleSubmit,formState : {errors,isSubmitting},setError} = useForm({resolver : zodResolver(schema)});
     const onSubmit =  async (data) =>{
         try{
-            console.log(data)
-      const user = await fetch(`http://localhost:3000/users/`,{
+            
+      const user = await fetch(`http://wsl-ubuntu:3000/`,{
             method : 'POST',
             headers : {
             'Accept': 'application/json',

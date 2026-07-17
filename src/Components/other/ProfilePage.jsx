@@ -1,14 +1,14 @@
-import { useParams } from "react-router"
+import { useParams } from "react-router-dom"
 import { useState,useEffect } from "react"
 import { ErrorRoute } from "./ErrorRoute"
 
 
-export function ProfilePage(){ 
+export default function ProfilePage(){ 
    const [profile,updateProfile] = useState(null)
    const [error,checkError] = useState(false)
     const {username} = useParams()
     useEffect(() =>{
-        fetch(`http://localhost:3000/users/generalInfo/${username}`)
+        fetch(`http://api--express-api-1:3000/users/generalInfo/${username}`)
 
         .then((profile) =>{
             return profile.json()

@@ -1,10 +1,12 @@
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
-export function ErrorRoute(){
+export default function ErrorRoute(){
     return  <div className="test">
 
             <h1>404 Not Found</h1>
             <Link to="/">Home</Link>
+
+
            </div>
           
     
