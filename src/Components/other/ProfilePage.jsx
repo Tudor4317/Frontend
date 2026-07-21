@@ -1,50 +1,82 @@
 import { useParams } from "react-router-dom"
 import { useState,useEffect } from "react"
-import { ErrorRoute } from "./ErrorRoute"
 
 
-export default function ProfilePage(){ 
-   const [profile,updateProfile] = useState(null)
-   const [error,checkError] = useState(false)
+const ProfilePage = () =>{
+    const [error,setError] = useState({state : false, message : {}})
+    const [user,setUser] = useState(null)
     const {username} = useParams()
-    useEffect(() =>{
-        fetch(`http://api--express-api-1:3000/users/generalInfo/${username}`)
+    console.log(username)
 
-        .then((profile) =>{
-            return profile.json()
+useEffect(() =>{
+
+const userFetch = async () =>{
+try{
+
+    const response= await fetch(`http://localhost:3000/users/generalInfo/${username}`,{
+        method : "GET"
+    })
+
+    const userData  = await response.json()
+
+
+  
+
+    if(!response.ok){
+        throw new Error(userData)
      
-        
-    })
-        .then((profile) =>{
-            
-            if(!profile.data){
-                return checkError(true)
-
-            }
-   
-            return updateProfile(profile)
-            
-   
-    })
-      
-    },[])
-
-    if(error){
-        return (<ErrorRoute />)
-    }
-        if(!profile){
-            console.log("loading")
-        return <h1>Loading...</h1>
     }
 
-    return (<>
-
-    <div className="Main">
-         <h1 className="Name">{profile.data.username}</h1>
-        <p className="Description">test</p>
-    </div>
-     <div className= "Artefacts">
-     {profile.data.artefacts.map((artefact) =>{return <div className="artefact" key={artefact.artefactId}>{artefact.artefact}, ArtefactId : {artefact.artefactId}, CreatedAt : {artefact.date}</div>})}</div>
     
+    setUser(userData)
+
+
+}
+ catch(err){
+    setError({state : true, message : err?.message || "Unexpected error"})
+    return;
+ }
+
+
+
+}
+
+userFetch()
+
+
+},[])
+if(error.state){
+return (<p className="error">{error.message}</p>)
+}
+
+if(!user){
+    return (<p>Loading...</p>)
+}
+
+if(!user.data){
+    return (<p>No user found !</p>)
+}
+
+
+return (
+    <>
+   
+   
+    { user.data.artefacts.length === 0 && (<p>No public artefacts</p>)}
+    
+    <div className="user-info">
+        <h1 className="Username">{user.data.username}</h1>
+        <p className="Description">{user.data.description || "No description available"}</p>
+    </div>
+    <div className="user-artefacts">
+
+        {user.data.artefacts.map((artefact) =>{return <div className="Artefact" key={artefact.artefactId}><p>{artefact.artefact}</p> <p>{artefact.description}</p></div>})}
+
+    </div>
     </>
-    )}
+)
+
+
+}
+
+export default ProfilePage

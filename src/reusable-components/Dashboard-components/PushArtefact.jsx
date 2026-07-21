@@ -8,7 +8,7 @@ import AccessContext from "../../ContextAPI/accessContext";
 
 const schema = z.object({
 
-    artefactName: z.string().min(8,"Artefact name must be at least 2 characters"),
+    artefactName: z.string().min(3,"Artefact name must be at least 3 characters"),
     description : z.string().max(100,"Maximum "),
     isPublic : z.boolean()
 

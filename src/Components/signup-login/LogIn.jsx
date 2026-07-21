@@ -36,7 +36,7 @@ const onSubmit = async (data) =>{
         
      if(!response.ok){
          
-    throw new Error(userData)
+    throw new Error(userData.message)
 
 }
 

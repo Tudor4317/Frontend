@@ -29,7 +29,7 @@ useEffect(() =>{
       const responseData = await response.json()
 
       if(!response.ok){
-         throw new Error(responseData || "Unexpected error")
+         throw new Error(responseData)
       }
 
       changeArtefact(responseData.artefacts)
@@ -37,25 +37,34 @@ useEffect(() =>{
       }
 
       catch(err){
-      setError({state : true, message : err?.message})
+      setError({state : true, message : err?.message || "Unexpected error"})
       return;
       }
    }
    getArtefacts()
 },[artefact])
 
+if(!artefact){
 
+   return(<p>Loading...</p>)
+}
+
+if(error.state){
+   return (
+      <p>{error.message}</p>
+   )
+}
 
 
 return(<>
 
-{error.state && (<p>{error.message || "Unexpected error"}</p>)}
-{artefact && artefact.length === 0 && (<p>No artefacts uploaded yet</p>)}
+
+{ artefact.length === 0 && (<p>No artefacts uploaded yet</p>)}
 
 
    <div className="Artefacts-Container">
 
-   {!artefact ? (<p>Loading...</p>) : (artefact.map((values) =>{return <div className="container" key={values.artefactId}>Artefact Name : {values.artefact} description : {values.description ? (<p>{values.description}</p>): (<p>No description used</p>)}</div>})) }
+   {(artefact.map((values) =>{return <div className="container" key={values.artefactId}>Artefact Name : {values.artefact} description : {values.description ? (<p>{values.description}</p>): (<p>No description used</p>)}</div>}))}
 
 
    </div>

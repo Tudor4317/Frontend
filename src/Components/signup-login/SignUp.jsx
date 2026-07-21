@@ -36,12 +36,12 @@ export default function SignUpForm(){
         })
 
       const userData = await response.json()
-
+        console.log(userData.message)
 
 
         if(!response.ok){
            
-            throw new Error(userData)
+            throw new Error(userData.message)
 
         }
         
@@ -53,9 +53,11 @@ export default function SignUpForm(){
  
 
         catch(err){
+         
             setError("root",{
                 message : err.message || "Unexpected error"
             })
+           
         }
     
     }
@@ -79,7 +81,7 @@ console.log(access)
 
 
             <button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading" : "Submit"}</button>
-              {errors.root && (<div className="error">{errors.root?.message}</div>)}
+              {errors.root && (<div className="error">{errors.root.message}</div>)}
         </form>
     )
 }
