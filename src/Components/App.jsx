@@ -4,13 +4,13 @@ import {Route,Routes} from 'react-router-dom'
 import Layout from "./Layouts/Layout"
 import  LogIn  from "./signup-login/LogIn"
 import SignUpForm from "./signup-login/SignUp"
-import Home from "./other/Home"
-import  Dashboard  from "./protected/Dashboard"
+import Home from "./other/Home/Home"
+import  {Dashboard}  from "./protected/Dashboard"
 import  ErrorRoute  from "./error/ErrorRoute"
 import CheckAuth from "./CheckAuth"
 import ProfilePage from "./other/ProfilePage"
 import { GlobalSearch } from "./other/GlobalSearch"
-
+import Workshop from "./other/Workshop"
 
 export function App(){
 
@@ -27,7 +27,7 @@ export function App(){
                 <Route path="profile/:username" element={<ProfilePage />} />
  
                 <Route element={<CheckAuth/>}>
-
+                <Route path="dashboard/workshop/:artefactId" element={<Workshop />} />
                 <Route path="dashboard" element={<Dashboard/>} />
 
                 </Route>

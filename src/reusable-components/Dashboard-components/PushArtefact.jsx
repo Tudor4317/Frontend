@@ -5,37 +5,52 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useState,createContext,useContext} from "react";
 import AccessContext from "../../ContextAPI/accessContext";
+// import FileUploader from "./FileUploader";
 
 const schema = z.object({
 
     artefactName: z.string().min(3,"Artefact name must be at least 3 characters"),
-    description : z.string().max(100,"Maximum "),
-    isPublic : z.boolean()
+    description : z.string().max(100,"Description can't be longer than 100 characters"),
+    isPublic : z.boolean(),
+    file : z.instanceof(FileList).refine(files => files.length === 1, "Select one file").transform(files => files[0]).refine(file => file.name.endsWith(".obj"), "Only obj format allowed"),
+    site : z.string().max(100,"Site name can't be longer than 50 characters").optional(),
+    author : z.string().max(50,"Author name can't be longer than 50 characters").optional()
+
+
 
 })
 
 
 const PushArtefacts = () =>{
     const {access} = useContext(AccessContext)
-    
     const navigate = useNavigate()
     const {register,handleSubmit,formState : {errors,isSubmitting},setError} = useForm({resolver : zodResolver(schema), defaultValues : {
-        isPublic : false
+        isPublic : false,
     }});
 
     const onSubmit = async (values) =>{
         try{
-            
             console.log(values)
+            const Formdata = new FormData()
+            Formdata.append("artefactName", values.artefactName)
+            Formdata.append("description", values.description)
+            Formdata.append("isPublic", values.isPublic)
+            Formdata.append("file", values.file)
+            Formdata.append("site", values.site)
+            Formdata.append("author", values.author)
+
+
+            
+
+            
       const response =  await fetch("http://localhost:3000/users/artefacts",{
             method: "PUT",
             credentials: "include",
             headers :{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json' ,
+        
             'Authorization' : access
             },
-            body : JSON.stringify(values)
+            body : Formdata
         })
       
       
@@ -48,9 +63,10 @@ const PushArtefacts = () =>{
 
 
         }
-        catch(err){
+        catch({message}){
+            
             setError("root",{
-                message : err.message || "Unexpected error"
+                message : message.message || "Unexpected error"
             })
         }
     }
@@ -62,15 +78,32 @@ const PushArtefacts = () =>{
 
         <input {...register("artefactName")} type="text" placeholder="Name" />
         {errors.artefactName && (<div className="error">{errors.artefactName.message}</div>)}
+       
+        
         <label>Visible </label>
         <input {...register("isPublic")} type="checkbox"/>
         {errors.isPublic && (<div className="error">{errors.isPublic.message}</div>)}
 
+
         <input {...register("description")} type="text" placeholder="Description" />
+
 
         {errors.description && (<div className="error">{errors.description.message}</div>)}
 
+
+        <input {...register("file")} type="file" /> 
+        {errors.file && (<div className="error">{errors.file.message}</div>)}
+
+
+        <input {...register("site")} type="text" placeholder="site" />
+        {errors.site && (<div className="error">{errors.site.message}</div>)}
+
+
+        <input {...register("author")} type="text" placeholder="author name" />
+        {errors.author && (<div className="error">{errors.author.message}</div>)}
+
         <button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
+
         {errors.root && <div className="error">{errors.root.message}</div>}
 
             </form>

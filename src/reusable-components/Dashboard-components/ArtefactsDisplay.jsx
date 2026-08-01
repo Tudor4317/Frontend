@@ -3,7 +3,9 @@ import useRefreshToken from "../../../hooks/useRefreshToken";
 import useAccess from "../../../hooks/useAccessContextHook";
 import useRefreshArtefact from "../../../hooks/useRefreshArtefact";
 import LogOut from "../GeneralUse-components/LogOut";
+import { useNavigate } from "react-router-dom";
 const Artefact = () =>{
+const navigate = useNavigate()
 const {artefact,changeArtefact} = useRefreshArtefact()
 
 // const [isFetching,stopFetching] = useState(true)
@@ -64,10 +66,12 @@ return(<>
 
    <div className="Artefacts-Container">
 
-   {(artefact.map((values) =>{return <div className="container" key={values.artefactId}>Artefact Name : {values.artefact} description : {values.description ? (<p>{values.description}</p>): (<p>No description used</p>)}</div>}))}
+   {(artefact.map((values) =>{return <div className="container" onClick={() => navigate(`/dashboard/workshop/${values.artefactId}`)} key={values.artefactId}>Artefact Name : {values.artefact}</div>}))}
 
 
    </div>
+
+   {/*  description : {values.description ? (<p>{values.description}</p>): (<p>No description used</p>)} */}
 
 </>
 

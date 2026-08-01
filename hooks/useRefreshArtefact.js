@@ -1,5 +1,5 @@
          import { useContext } from "react"
-import ArtefactContext from "../src/ContextAPI/artefactsRefresh"
+import ArtefactContext from "../src/Components/protected/Dashboard"
 
 
 
