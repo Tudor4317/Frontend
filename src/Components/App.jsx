@@ -11,6 +11,7 @@ import CheckAuth from "./CheckAuth"
 import ProfilePage from "./other/ProfilePage"
 import { GlobalSearch } from "./other/GlobalSearch"
 import Workshop from "./other/Workshop"
+import Preview from "./other/ArtefactPreview"
 
 export function App(){
 
@@ -26,11 +27,13 @@ export function App(){
 
                 <Route path="profile/:username" element={<ProfilePage />} />
  
-                <Route element={<CheckAuth/>}>
-                <Route path="dashboard/workshop/:artefactId" element={<Workshop />} />
+                {/* <Route element={<CheckAuth/>}> */}
+
+                <Route path="dashboard/preview" element={<Preview />} />
+                <Route path="dashboard/workshop/" element={<Workshop />} />
                 <Route path="dashboard" element={<Dashboard/>} />
 
-                </Route>
+                {/* </Route> */}
 
                 <Route path="*" element={<ErrorRoute />} />
             </Route>

@@ -9,10 +9,10 @@ const ArtefactContext = createContext(null)
 
 export  function Dashboard() {
     const [artefact,changeArtefact] = useState(null)
-
+    const [user,setUser] = useState(null)
 return (
     <>
-    <ArtefactContext.Provider value={{artefact,changeArtefact}}>
+    <ArtefactContext.Provider value={{artefact,changeArtefact,user,setUser}}>
 
     <Artefacts />
     <PushArtefacts />

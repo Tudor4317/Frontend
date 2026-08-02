@@ -5,8 +5,9 @@ import useRefreshArtefact from "../../../hooks/useRefreshArtefact";
 import LogOut from "../GeneralUse-components/LogOut";
 import { useNavigate } from "react-router-dom";
 const Artefact = () =>{
+
 const navigate = useNavigate()
-const {artefact,changeArtefact} = useRefreshArtefact()
+const {artefact,changeArtefact,setUser} = useRefreshArtefact()
 
 // const [isFetching,stopFetching] = useState(true)
 
@@ -35,6 +36,8 @@ useEffect(() =>{
       }
 
       changeArtefact(responseData.artefacts)
+      setUser(responseData.user)
+
 
       }
 

@@ -5,7 +5,7 @@ import { Canvas,useFrame,useLoader,} from "@react-three/fiber"
 import { FirstPersonControls, OrbitControls,GizmoHelper,GizmoViewcube, GizmoViewport,useTexture } from "@react-three/drei"
 import { useControls } from "leva"
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-
+import ArtefactCss from "./Artefact3dObj.module.css"
 
 
 const Artefact = () =>{
@@ -109,8 +109,8 @@ const Animation = () =>{
 const ArtefactObj = () =>{
 
     return(
-    <div className="Obj">
-        <Canvas style={{width: "70vw", height: "50vh"}}  camera={{position: [10,10,10], fov:1}}>
+    <div className={ArtefactCss.obj}>
+        <Canvas className={ArtefactCss.canvas} camera={{position: [10,10,10], fov:40}}>
 
         <GizmoHelper alignment="bottom-left" margin={[70,70]}>
 
