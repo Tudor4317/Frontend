@@ -4,7 +4,19 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  background: #0d0c1c;
   color: white;
-}
 
+  background-color: #0d0c1c;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+
+
+  background-size:
+    70px 70px,
+    110px 110px;
+
+  background-position:
+    0 0,
+    35px 50px;
+}

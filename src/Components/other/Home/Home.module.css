@@ -3,5 +3,5 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background: #0d0c1c;
+
 }

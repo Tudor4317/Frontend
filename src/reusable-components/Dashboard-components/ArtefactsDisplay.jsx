@@ -64,12 +64,12 @@ return(<>
 { artefact.length === 0 && (<p>No artefacts uploaded yet</p>)}
 
 
-   <div className="Artefacts-Container">
+   
 
-   {(artefact.map((values) =>{return <div className="container" onClick={() => navigate(`/dashboard/workshop/${values.artefactId}`)} key={values.artefactId}>Artefact Name : {values.artefact}</div>}))}
+   {(artefact.map((values) =>{return <article className="record" onClick={() => navigate(`/home/workshop/${values.artefactId}`)} key={values.artefactId}>Artefact Name : {values.artefact}</article>}))}
 
 
-   </div>
+  
 
    {/*  description : {values.description ? (<p>{values.description}</p>): (<p>No description used</p>)} */}
 

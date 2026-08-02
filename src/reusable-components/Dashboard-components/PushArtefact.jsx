@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useState,createContext,useContext} from "react";
 import AccessContext from "../../ContextAPI/accessContext";
-// import FileUploader from "./FileUploader";
+import useRefreshArtefact from "../../../hooks/useRefreshArtefact"
 
 const schema = z.object({
 
@@ -61,6 +61,8 @@ const PushArtefacts = () =>{
             throw new Error(data)
         }
 
+        navigate("/dashboard")
+
 
         }
         catch({message}){
@@ -73,9 +75,9 @@ const PushArtefacts = () =>{
 
 
     return (
-        <div className="submit-form">
-            <form onSubmit={handleSubmit(onSubmit)}>
-
+        <div className="submit-form" >
+            <form onSubmit={handleSubmit(onSubmit)} >
+            
         <input {...register("artefactName")} type="text" placeholder="Name" />
         {errors.artefactName && (<div className="error">{errors.artefactName.message}</div>)}
        
@@ -103,9 +105,9 @@ const PushArtefacts = () =>{
         {errors.author && (<div className="error">{errors.author.message}</div>)}
 
         <button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
-
+       
         {errors.root && <div className="error">{errors.root.message}</div>}
-
+           
             </form>
 
 

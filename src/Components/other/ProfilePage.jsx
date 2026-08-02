@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom"
 import { useState,useEffect } from "react"
-
+import { useNavigate,useParams } from "react-router-dom"
 
 const ProfilePage = () =>{
     const [error,setError] = useState({state : false, message : {}})
@@ -70,7 +69,7 @@ return (
     </div>
     <div className="user-artefacts">
 
-        {user.data.artefacts.map((artefact) =>{return <div className="Artefact" key={artefact.artefactId}><p>{artefact.artefact}</p> <p>{artefact.description}</p></div>})}
+        {user.data.artefacts.map((artefact) =>{return <div onClick={() => navigate(`/home/workshop/${artefact.artefactId}`)} className="Artefact" key={artefact.artefactId}><p>{artefact.artefact}</p></div>})}
 
     </div>
     </>

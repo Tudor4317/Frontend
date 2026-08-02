@@ -34,7 +34,7 @@
   color: white;
 
   font-family: monospace;
-  font-size: 0.75rem;
+  font-size: 0.80rem;
   line-height: 1.4;
 }
 
@@ -120,6 +120,9 @@
 .two {
   border-color: #20b86b;
 }
+/* =========================
+   MOBILE
+   ========================= */
 
 .three {
   border-color: #5795e8;
@@ -249,9 +252,6 @@
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
 
 @media (max-width: 480px) {
   .homeMain {

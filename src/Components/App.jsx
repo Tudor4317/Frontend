@@ -11,6 +11,7 @@ import CheckAuth from "./CheckAuth"
 import ProfilePage from "./other/ProfilePage"
 import { GlobalSearch } from "./other/GlobalSearch"
 import Workshop from "./other/Workshop"
+import Upload from "./protected/Upload"
 
 export function App(){
 
@@ -26,11 +27,12 @@ export function App(){
 
                 <Route path="profile/:username" element={<ProfilePage />} />
  
-                <Route element={<CheckAuth/>}>
-                <Route path="dashboard/workshop/:artefactId" element={<Workshop />} />
-                <Route path="dashboard" element={<Dashboard/>} />
+                {/* <Route element={<CheckAuth/>}> */}
+                <Route path="home/upload" element={<Upload />} />
+                <Route path="workshop/:artefactId" element={<Workshop />} />
+                <Route path="home/dashboard" element={<Dashboard/>} />
 
-                </Route>
+                {/* </Route> */}
 
                 <Route path="*" element={<ErrorRoute />} />
             </Route>
