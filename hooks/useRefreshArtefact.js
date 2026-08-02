@@ -5,9 +5,9 @@ import ArtefactContext from "../src/Components/protected/Dashboard"
 
 
 const useRefreshArtefact = () =>{
-const {artefact,changeArtefact} = useContext(ArtefactContext)
+const {artefact,changeArtefact,user,setUser} = useContext(ArtefactContext)
 
-    return {artefact,changeArtefact}
+    return {artefact,changeArtefact,user,setUser}
 
 }
 

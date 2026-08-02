@@ -1,5 +1,6 @@
 import { useEffect,useState} from "react";
 import { useParams } from "react-router-dom";
+import ArtefactCss from "./ArtefactMetadata.module.css";
 import useAccess from "../../../hooks/useAccessContextHook"
 const ArtefactData = () =>{
     const {access} = useAccess()
@@ -51,16 +52,16 @@ const ArtefactData = () =>{
 
    
     return(
-        <div className="MetaData">
+        <section className={ArtefactCss.metadata}>
 
             <ul>
-                <li className="Artefact-Name">{data.artefact.artefact || "No name provided"}</li>
-                <li className="site">{data.artefact.site || "No name provided"}</li>
-                <li className="Author">{data.artefact.author || "No name provided"}</li>
+                <li className={ArtefactCss.artefactName}>{data.artefact.artefact || "No name provided"}</li>
+                <li className={ArtefactCss.site}>{data.artefact.site || "No name provided"}</li>
+                <li className={ArtefactCss.author}>{data.artefact.author || "No name provided"}</li>
 
             </ul>
 
-        </div>
+        </section>
     )
 
 

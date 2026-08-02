@@ -12,6 +12,7 @@ import ProfilePage from "./other/ProfilePage"
 import { GlobalSearch } from "./other/GlobalSearch"
 import Workshop from "./other/Workshop"
 import Upload from "./protected/Upload"
+import Preview from "./other/ArtefactPreview"
 
 export function App(){
 
@@ -30,7 +31,8 @@ export function App(){
                 {/* <Route element={<CheckAuth/>}> */}
                 <Route path="home/upload" element={<Upload />} />
                 <Route path="workshop/:artefactId" element={<Workshop />} />
-                <Route path="home/dashboard" element={<Dashboard/>} />
+                <Route path="home/dashboard" element={<Dashboard/>} />\
+                <Route path="home/preview" element={<Preview />} />
 
                 {/* </Route> */}
 
