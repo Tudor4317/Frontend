@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import useUserDataContext from "../../../hooks/useUserDataContext"
 import { useNavigate } from "react-router-dom"
-
+import Usercss from "./UserInfo.module.css"
 
 const UserInfo = () =>{
     const navigate = useNavigate()
@@ -11,22 +11,22 @@ const {userData,setUserData} = useUserDataContext()
  
 
         if(userData === null) {
-             return (<p className="username" >Start searching for a user</p>)
+             return (<p className={Usercss.empty} >Start searching for a user</p>)
 
         }
   
             if(!userData.artefacts){
 
                 return (
-                    <div className="user" onClick={() => navigate(`/profile/${userData.username}`)}>{userData.username}</div>
+                    <div className={Usercss.username} onClick={() => navigate(`/profile/${userData.username}`)}>{userData.username}</div>
                 )
 
             }
 
 return(
-    <div>
-        <p className="username" onClick={() => navigate(`/profile/${userData.username}`)}>{userData.username}</p>
-        {userData.artefacts.length > 0 ? userData.artefacts.map((data) =>{return <div className="Artefacts" key={data.artefactId}>{data.artefact} by {userData.username}</div>}) : "This user has no artefacts uploaded"}
+    <div className={Usercss.container}>
+        <article className={Usercss.username} onClick={() => navigate(`/profile/${userData.username}`)}>{userData.username}</article>
+        {userData.artefacts.length > 0 ? userData.artefacts.map((data) =>{return <div className={Usercss.artefact} key={data.artefactId}>{data.artefact} by {userData.username}</div>}) : "This user has no artefacts uploaded"}
     </div>
 )
 

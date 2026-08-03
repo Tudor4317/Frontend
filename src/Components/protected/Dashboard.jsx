@@ -5,7 +5,7 @@ import { createContext,useState } from "react";
 import DashboardCss from "./Dashboard.module.css"
 import Navigator from "../../reusable-components/Dashboard-components/DashboardNav";
 import { useNavigate } from "react-router-dom";
-
+import { Outlet } from "react-router-dom";
 
 const ArtefactContext = createContext(null)
 
@@ -23,22 +23,28 @@ return (
     <ArtefactContext.Provider value={{artefact,changeArtefact}}>
     <main className={DashboardCss.dashboard}>
 
-    <div className={DashboardCss.container}>
         
-        <Artefacts />
-
-    </div>
-
-    <button onClick={() => navigate("/home/upload")} className={DashboardCss.btn}>
-        upload →
-    </button>
-
-
     <nav className={DashboardCss.navbar} >
 
     <Navigator />
 
     </nav >
+
+    <div className={DashboardCss.container}>
+        
+        <Outlet />
+
+
+        <button onClick={() => navigate("/home/upload")} className={DashboardCss.btn}>
+        upload →
+        </button>
+
+
+    </div>
+
+
+
+
 
 
     </main>

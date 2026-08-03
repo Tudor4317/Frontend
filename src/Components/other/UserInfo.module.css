@@ -1,0 +1,129 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    overflow: visible;
+}
+.username {
+    width: 100%;
+    min-height: 115px;
+
+    padding: 0 2.5rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 22px;
+
+    background: rgba(5, 4, 20, 0.9);
+
+    color: white;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.username:hover {
+    transform: translateX(3px);
+
+    background: rgba(10, 9, 30, 0.95);
+
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.06);
+}
+
+
+.artefact {
+    width: 100%;
+    min-height: 80px;
+
+    padding: 0 2rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 14px;
+
+    background: rgba(5, 4, 20, 0.8);
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-family: monospace;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.artefact:hover {
+    transform: translateX(3px);
+
+    background: rgba(10, 9, 30, 0.95);
+
+    color: white;
+}
+
+
+.empty {
+    margin: 2rem;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-family: monospace;
+    font-size: 1rem;
+
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .container {
+        gap: 1rem;
+    }
+
+    .username {
+        min-height: 80px;
+
+        padding: 0 1.2rem;
+
+        border-radius: 15px;
+
+        font-size: 1.1rem;
+    }
+
+    .artefact {
+        min-height: 65px;
+
+        padding: 0 1rem;
+
+        border-radius: 12px;
+
+        font-size: 0.75rem;
+    }
+
+    .empty {
+        margin: 1rem;
+
+        font-size: 0.8rem;
+    }
+}

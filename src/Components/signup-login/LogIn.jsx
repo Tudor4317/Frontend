@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import AccessContext from "../../ContextAPI/accessContext";
+import LoginCss from "./Login.module.css"
 
 const schema = z.object({
     email : z.string().email("Email must be valid !"),
@@ -43,7 +44,7 @@ const onSubmit = async (data) =>{
 changeAccess(userData.accessToken)
 
 
-        navigate("/dashboard")
+        navigate("/home/dashboard/artefacts")
 
     }
 
@@ -57,19 +58,29 @@ changeAccess(userData.accessToken)
 }
 
 return  (
-    <form onSubmit={handleSubmit(onSubmit)}>
-<input {...register("email")} type="text" placeholder="Please enter your email"/>
+  <main className={LoginCss.login}>
+           
+           <h1 className={LoginCss.title}>Log in</h1>
 
-{errors.email && (<div className="error">{errors.email.message}</div>)}
+        <section className={LoginCss.container}>
+        <form  onSubmit={handleSubmit(onSubmit)}>
 
-<input {...register("password")} type = "password" placeholder="Please enter your password"/>
 
-{errors.password && (<div className="error">{errors.password.message}</div>)}
+            <input  {...register("email")} type="text" className={`${LoginCss.bracket} ${LoginCss.email}`} placeholder="Email"/>
+            {errors.email && (<div className={LoginCss.error}>{errors.email.message}</div>)}
 
-{errors.root && (<div className="error">{errors.root.message}</div>)}
-<button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading" : "Submit"}</button>
 
-    </form>
+
+            <input {...register("password")}  className={`${LoginCss.bracket} ${LoginCss.password}`} type = "password" placeholder="password"/>
+            {errors.password && (<div className={LoginCss.error}>{errors.password.message}</div>)}
+            {errors.root && (<div className={LoginCss.error}>{errors.root.message}</div>)}
+
+            <button disabled={isSubmitting}  className={LoginCss.btn} type="submit">{isSubmitting ? "Loading" : "Log in"}</button>
+           
+              
+        </form>
+        </section>
+        </main>
 )
 
 }

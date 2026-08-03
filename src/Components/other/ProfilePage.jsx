@@ -1,9 +1,6 @@
 import { useState,useEffect } from "react"
-<<<<<<< HEAD
 import { useNavigate,useParams } from "react-router-dom"
-=======
 import ProfileCss from "./ProfilePage.module.css"
->>>>>>> 3e3d55151cb9033de43c51cd80b9f44d951c4dea
 
 const ProfilePage = () =>{
 
@@ -80,7 +77,7 @@ return (
 
     <section className={ProfileCss.artefacts}>
 
-        {user.data.artefacts.map((artefact) =>{return  <article onClick={} className={ProfileCss.artefact} key={artefact.artefactId}><p>{artefact.artefact}</p></article>})}
+        {user.data.artefacts.map((artefact) =>{return  <article onClick={() => null} className={ProfileCss.artefact} key={artefact.artefactId}><p>{artefact.artefact}</p></article>})}
 
     </section>
     </main>

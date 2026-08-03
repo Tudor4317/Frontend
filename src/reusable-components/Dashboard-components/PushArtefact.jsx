@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useState,createContext,useContext} from "react";
 import AccessContext from "../../ContextAPI/accessContext";
 import useRefreshArtefact from "../../../hooks/useRefreshArtefact"
-
+import Pushcss from "./Pushartefact.module.css"
 const schema = z.object({
 
     artefactName: z.string().min(3,"Artefact name must be at least 3 characters"),
@@ -61,7 +61,7 @@ const PushArtefacts = () =>{
             throw new Error(data)
         }
 
-        navigate("/dashboard")
+        navigate("/home/dashboard/artefacts")
 
 
         }
@@ -75,38 +75,39 @@ const PushArtefacts = () =>{
 
 
     return (
-        <div className="submit-form" >
+        <div className={Pushcss.container} >
             <form onSubmit={handleSubmit(onSubmit)} >
             
-        <input {...register("artefactName")} type="text" placeholder="Name" />
+        <input  {...register("artefactName")} className={Pushcss.bracket} type="text" placeholder="Name" />
         {errors.artefactName && (<div className="error">{errors.artefactName.message}</div>)}
        
-        
-        <label>Visible </label>
-        <input {...register("isPublic")} type="checkbox"/>
-        {errors.isPublic && (<div className="error">{errors.isPublic.message}</div>)}
+        <div className={Pushcss.visibility}>
+        <label className={Pushcss.sign}>Visible </label>
+
+        <input className={Pushcss.tick} {...register("isPublic")} type="checkbox"/>
+        {errors.isPublic && (<div className={Pushcss.error}>{errors.isPublic.message}</div>)}
+        </div>
+
+        <input className={Pushcss.bracket} {...register("description")} type="text" placeholder="Description" />
 
 
-        <input {...register("description")} type="text" placeholder="Description" />
+        {errors.description && (<div className={Pushcss.error}>{errors.description.message}</div>)}
 
 
-        {errors.description && (<div className="error">{errors.description.message}</div>)}
+        <input className={Pushcss.bracket} {...register("file")} type="file" /> 
+        {errors.file && (<div className={Pushcss.error}>{errors.file.message}</div>)}
 
 
-        <input {...register("file")} type="file" /> 
-        {errors.file && (<div className="error">{errors.file.message}</div>)}
+        <input className={Pushcss.bracket} {...register("site")} type="text" placeholder="site" />
+        {errors.site && (<div className={Pushcss.error}>{errors.site.message}</div>)}
 
 
-        <input {...register("site")} type="text" placeholder="site" />
-        {errors.site && (<div className="error">{errors.site.message}</div>)}
-
-
-        <input {...register("author")} type="text" placeholder="author name" />
+        <input className={Pushcss.bracket} {...register("author")} type="text" placeholder="author name" />
         {errors.author && (<div className="error">{errors.author.message}</div>)}
 
-        <button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
+        <button className={Pushcss.bracket} disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
        
-        {errors.root && <div className="error">{errors.root.message}</div>}
+        {errors.root && <div className={Pushcss.error}>{errors.root.message}</div>}
            
             </form>
 

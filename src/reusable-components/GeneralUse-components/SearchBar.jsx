@@ -4,12 +4,12 @@ import {useForm} from "react-hook-form"
 import {check, z} from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import useUserDataContext from "../../../hooks/useUserDataContext";
-
+import SearchCss from "./SearchBar.module.css"
 
 
 const schema = z.object({
 
-    username : z.string().min(1, "Field"),
+    username : z.string().min(1, "Can't be empty !"),
     showArtefacts : z.boolean()
 
 
@@ -77,17 +77,18 @@ const {userData,setUserData} = useUserDataContext()
 
 
     return(
+        
        <form onSubmit={handleSubmit(fetchData)}>
 
-        <input {...register("username")} type="text" placeholder="search"  />
-        {errors.username && (<div className="error">{errors.username.message}</div>)}
+        <input {...register("username")} className={SearchCss.bracket}type="text" placeholder="search"  />
+        {errors.username && (<div className={SearchCss.error}>{errors.username.message}</div>)}
 
         <label>Display artefacts</label>
-        <input {...register("showArtefacts")}  type="checkbox" />
+        <input {...register("showArtefacts")} className={SearchCss.tick} type="checkbox" />
 
-        {errors.root && (<div className="error">{errors.root.message}</div>)}
+        {errors.root && (<div className={SearchCss.error}>{errors.root.message}</div>)}
 
-        <button disabled={isSubmitting}>{isSubmitting ? "Loading.." : "search"}</button>
+        <button className={SearchCss.btn} disabled={isSubmitting}>{isSubmitting ? "Loading.." : "search"}</button>
 
 
        </form> 

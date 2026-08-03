@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useState,createContext,useContext} from "react";
 import AccessContext from "../../ContextAPI/accessContext";
-
+import SignupCss from "./Signup.module.css"
 
 const schema = z.object({
     email : z.string().email("Email must be valid"),
@@ -47,7 +47,7 @@ export default function SignUpForm(){
         
         changeAccess(userData.accessToken)
 
-        navigate("/Dashboard")
+        navigate("/home/dashboard/artefacts")
 
         }
  
@@ -63,25 +63,33 @@ export default function SignUpForm(){
     }
     
 
-console.log(access)
+
     return (
+        <main className={SignupCss.signup}>
+           
+           <h1 className={SignupCss.title}>Sign up now</h1>
+
+        <section className={SignupCss.container}>
         <form  onSubmit={handleSubmit(onSubmit)}>
 
 
-            <input  {...register("email")} type="text"  placeholder="Email"/>
-            {errors.email && (<div className="error">{errors.email.message}</div>)}
+            <input  {...register("email")} type="text" className={`${SignupCss.bracket} ${SignupCss.email}`} placeholder="Email"/>
+            {errors.email && (<div className={SignupCss.error}>{errors.email.message}</div>)}
 
 
-            <input {...register("username")}type = "text" placeholder="username"/>
-            {errors.username && (<div className="error">{errors.username.message}</div>)}
+            <input {...register("username")}type ="text" className={`${SignupCss.bracket} ${SignupCss.username}`} placeholder="username"/>
+            {errors.username && (<div className={SignupCss.error}>{errors.username.message}</div>)}
 
 
-            <input {...register("password")}  type = "password" placeholder="password"/>
-            {errors.password && (<div className="error">{errors.password.message}</div>)}
+            <input {...register("password")}  className={`${SignupCss.bracket} ${SignupCss.password}`} type = "password" placeholder="password"/>
+            {errors.password && (<div className={SignupCss.error}>{errors.password.message}</div>)}
+            {errors.root && (<div className={SignupCss.error}>{errors.root.message}</div>)}
 
-
-            <button disabled={isSubmitting} type="submit">{isSubmitting ? "Loading" : "Submit"}</button>
-              {errors.root && (<div className="error">{errors.root.message}</div>)}
+            <button disabled={isSubmitting}  className={SignupCss.btn} type="submit">{isSubmitting ? "Loading" : "Sign up now !"}</button>
+            <button type="button" onClick={() => navigate("/login")}   className={SignupCss.redirect} >I already have an account </button>
+              
         </form>
+        </section>
+        </main>
     )
 }

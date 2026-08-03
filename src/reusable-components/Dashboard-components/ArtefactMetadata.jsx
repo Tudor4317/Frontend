@@ -41,7 +41,7 @@ const ArtefactData = () =>{
     },[])
 
     if(error.state){
-        return (<p className="error">{error.message}</p>)
+        return (<p className={ArtefactCss.error}>{error.message}</p>)
     }
 
 

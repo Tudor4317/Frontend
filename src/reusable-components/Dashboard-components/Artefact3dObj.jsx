@@ -110,7 +110,7 @@ const ArtefactObj = () =>{
 
     return(
     <div className={ArtefactCss.obj}>
-        <Canvas className={ArtefactCss.canvas} camera={{position: [10,10,10], fov:40}}>
+        <Canvas className={ArtefactCss.canvas} camera={{position: [1,1,1], fov:10}}>
 
         <GizmoHelper alignment="bottom-left" margin={[70,70]}>
 

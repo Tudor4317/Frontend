@@ -13,6 +13,7 @@ import { GlobalSearch } from "./other/GlobalSearch"
 import Workshop from "./other/Workshop"
 import Upload from "./protected/Upload"
 import Preview from "./other/ArtefactPreview"
+import Artefact from "../reusable-components/Dashboard-components/ArtefactsDisplay"
 
 export function App(){
 
@@ -21,20 +22,28 @@ export function App(){
             <Route path="/" element={<Layout />}>
 
                  <Route index element={<Home />} />
-                 <Route path="search" element={<GlobalSearch />} />
+               
 
                 <Route path="login" element={<LogIn />} />
                 <Route path="signup" element={<SignUpForm />} />
 
                 <Route path="profile/:username" element={<ProfilePage />} />
  
-                {/* <Route element={<CheckAuth/>}> */}
+                <Route element={<CheckAuth/>}> 
                 <Route path="home/upload" element={<Upload />} />
-                <Route path="workshop/:artefactId" element={<Workshop />} />
-                <Route path="home/dashboard" element={<Dashboard/>} />\
+                <Route path="home/workshop/:artefactId" element={<Workshop />} />
+
+                <Route path="home/dashboard" element={<Dashboard/>}>
+
+                <Route path={"artefacts"} element={<Artefact />} />
+                <Route path={"search"}  element={<GlobalSearch />} />
+                <Route path={"settings"} element={<Artefact />} />
+
+                </Route>
+
                 <Route path="home/preview" element={<Preview />} />
 
-                {/* </Route> */}
+                 </Route> 
 
                 <Route path="*" element={<ErrorRoute />} />
             </Route>

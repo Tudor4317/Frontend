@@ -1,0 +1,170 @@
+
+
+form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+
+
+
+.bracket {
+    width: 100%;
+    height: 90px;
+
+    padding: 0 2rem;
+
+    box-sizing: border-box;
+
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 22px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: white;
+
+    text-align: center;
+
+    font-family: monospace;
+    font-size: 2rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.bracket::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+.bracket:focus {
+    border-color: #25bde9;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    box-shadow:
+        0 0 18px rgba(37, 189, 233, 0.2);
+}
+
+
+
+
+.tick {
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+
+    accent-color: #25bde9;
+}
+
+
+
+
+form label {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-family: monospace;
+    font-size: 0.85rem;
+
+    cursor: pointer;
+}
+
+
+
+.btn {
+    min-width: 180px;
+    height: 55px;
+
+    padding: 0 1.5rem;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #25bde9;
+
+    color: white;
+
+    font-family: monospace;
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.btn:hover {
+    background: #32c5ef;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 18px rgba(37, 189, 233, 0.4);
+}
+
+
+.btn:active {
+    transform: translateY(0);
+}
+
+
+.btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+
+.error {
+    margin: 0;
+
+    color: #ff7070;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+
+    text-align: center;
+}
+
+
+
+@media (max-width: 600px) {
+
+    .bracket {
+        height: 65px;
+
+        padding: 0 1rem;
+
+        border-radius: 16px;
+
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    form label {
+        font-size: 0.75rem;
+    }
+}

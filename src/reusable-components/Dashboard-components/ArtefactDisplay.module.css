@@ -1,0 +1,120 @@
+.container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    flex: 1;
+}
+
+.text {
+    font-family: monospace;
+    font-weight: bold;
+    color: white;
+}
+
+.artefact {
+    width: 100%;
+    min-height: 65px;
+
+    padding: 0.7rem 0.8rem 0.7rem 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+
+    background: rgba(5, 4, 20, 0.85);
+
+    color: white;
+
+    font-family: monospace;
+    font-size: 0.85rem;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.artefact:hover {
+    transform: translateX(3px);
+
+    background: rgba(15, 14, 35, 0.95);
+
+    border-color: rgba(37, 189, 233, 0.35);
+}
+
+
+
+.view {
+    flex-shrink: 0;
+
+    padding: 0.55rem 1rem;
+
+    border: none;
+    border-radius: 3px;
+
+    background: #25bde9;
+    color: white;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.view:hover {
+    background: #32c5ef;
+
+    transform: translateX(2px);
+
+    box-shadow:
+        0 0 12px rgba(37, 189, 233, 0.45);
+}
+
+.view:active {
+    transform: translateX(0);
+}
+
+
+
+
+.error {
+    margin: 0;
+
+    color: #ff6b6b;
+
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+
+
+
+@media (max-width: 650px) {
+
+    .artefact {
+        min-height: 60px;
+
+        padding-left: 0.8rem;
+
+        font-size: 0.75rem;
+    }
+
+    .view {
+        padding: 0.5rem 0.7rem;
+
+        font-size: 0.7rem;
+    }
+}
