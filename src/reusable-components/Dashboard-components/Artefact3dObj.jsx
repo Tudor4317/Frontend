@@ -79,8 +79,7 @@ return (
 const Animation = () =>{
 
     const boxRef = useRef()
-    const {speed,color} = useControls({
-        color : "blue",
+    const {speed} = useControls({     
         speed : {
             value : 0.01,
             min: 0.0,
@@ -110,7 +109,7 @@ const ArtefactObj = () =>{
 
     return(
     <div className={ArtefactCss.obj}>
-        <Canvas className={ArtefactCss.canvas} camera={{position: [1,1,1], fov:10}}>
+        <Canvas className={ArtefactCss.canvas} camera={{position: [1,1,1], fov:100}}>
 
         <GizmoHelper alignment="bottom-left" margin={[70,70]}>
 

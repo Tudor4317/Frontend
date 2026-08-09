@@ -7,6 +7,27 @@
 
     flex: 1;
 }
+.btn {
+    align-self: flex-end;
+
+    margin-top: auto;
+    padding: 0.7rem 1.4rem;
+
+    border: none;
+    border-radius: 4px;
+
+    background: #25bde9;
+    color: white;
+
+    font-family: monospace;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
 
 .text {
     font-family: monospace;

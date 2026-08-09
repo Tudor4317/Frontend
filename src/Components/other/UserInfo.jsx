@@ -26,7 +26,7 @@ const {userData,setUserData} = useUserDataContext()
 return(
     <div className={Usercss.container}>
         <article className={Usercss.username} onClick={() => navigate(`/profile/${userData.username}`)}>{userData.username}</article>
-        {userData.artefacts.length > 0 ? userData.artefacts.map((data) =>{return <div className={Usercss.artefact} key={data.artefactId}>{data.artefact} by {userData.username}</div>}) : "This user has no artefacts uploaded"}
+        {userData.artefacts.length > 0 ? userData.artefacts.map((data) =>{return <div onClick={() => navigate(`/home/preview/${data.artefactId}`)} className={Usercss.artefact} key={data.artefactId}>{data.artefact} by {userData.username}</div>}) : "This user has no artefacts uploaded"}
     </div>
 )
 

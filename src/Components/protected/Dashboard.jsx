@@ -1,4 +1,4 @@
-import LogOut from "../../reusable-components/GeneralUse-components/LogOut";
+
 import PushArtefacts from "../../reusable-components/Dashboard-components/PushArtefact";
 import Artefacts from "../../reusable-components/Dashboard-components/ArtefactsDisplay";
 import { createContext,useState } from "react";
@@ -20,9 +20,9 @@ return (
     <>
 
     
-    <ArtefactContext.Provider value={{artefact,changeArtefact}}>
+    
     <main className={DashboardCss.dashboard}>
-
+    <ArtefactContext.Provider value={{artefact,changeArtefact}}>
         
     <nav className={DashboardCss.navbar} >
 
@@ -35,9 +35,6 @@ return (
         <Outlet />
 
 
-        <button onClick={() => navigate("/home/upload")} className={DashboardCss.btn}>
-        upload →
-        </button>
 
 
     </div>
@@ -47,15 +44,15 @@ return (
 
 
 
+    </ArtefactContext.Provider>
     </main>
 
    
 
    
 
-    </ArtefactContext.Provider>
 
-    <LogOut />
+    
 
     
     </>

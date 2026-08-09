@@ -1,0 +1,71 @@
+.btn {
+    width: 100%;
+    min-height: 52px;
+
+    padding: 0.8rem 1rem;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-family: monospace;
+    font-size: 0.85rem;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.btn:hover {
+    color: white;
+
+    background: rgba(37, 189, 233, 0.07);
+
+    border-color: rgba(37, 189, 233, 0.2);
+
+    transform: translateX(3px);
+}
+
+
+.btn:active {
+    transform: translateX(1px);
+}
+
+
+
+.btn:first-child {
+    color: #25bde9;
+
+    background: rgba(37, 189, 233, 0.1);
+
+    border-color: rgba(37, 189, 233, 0.25);
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .btn {
+        width: auto;
+        min-width: 140px;
+
+        white-space: nowrap;
+
+        text-align: center;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+}

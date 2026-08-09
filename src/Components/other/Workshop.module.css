@@ -1,88 +1,94 @@
 .container {
-  width: min(100%, 100vw);
-  min-height: calc(100vh - 100px);
+    width: 100%;
+    height: calc(100vh - 100px);
 
-  margin: 0 auto;
-  padding: 2rem;
+    box-sizing: border-box;
 
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.8fr);
-  gap: 1.5rem;
+    padding: 2rem;
 
-  color: white;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.8fr);
+    grid-template-rows: minmax(0, 1fr);
+
+    gap: 1.5rem;
+
+    color: white;
 }
 
 
-
-
-.artefact,
-.metadata {
-  min-width: 0;
-
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 4px;
-
-  background: rgba(255, 255, 255, 0.06);
-
-  box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-
-
+/* 3D artefact panel */
 
 .artefact {
-  min-height: 600px;
+    min-width: 0;
+    min-height: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    box-sizing: border-box;
 
-  overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+
+    background: rgba(5, 4, 20, 0.85);
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 
-
+/* Metadata panel */
 
 .metadata {
-  padding: 1.5rem;
+    min-width: 0;
+    min-height: 0;
 
-  display: flex;
-  flex-direction: column;
+    box-sizing: border-box;
 
-  overflow-y: auto;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+
+    background: rgba(5, 4, 20, 0.85);
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 
+/* Tablet */
 
-@media (max-width: 800px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
+@media (max-width: 900px) {
 
-  .artefact {
-    min-height: 500px;
-  }
+    .container {
+        height: auto;
+        min-height: calc(100vh - 100px);
 
-  .metadata {
-    min-height: 300px;
-  }
+        grid-template-columns: 1fr;
+        grid-template-rows: 500px auto;
+
+        padding: 1.5rem;
+    }
 }
 
+
+/* Mobile */
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1rem;
 
-    gap: 1rem;
-  }
+    .container {
+        padding: 1rem;
+        gap: 1rem;
 
-  .artefact {
-    min-height: 350px;
-  }
+        grid-template-rows: 350px auto;
+    }
 
-  .metadata {
-    padding: 1rem;
-  }
+    .artefact,
+    .metadata {
+        border-radius: 16px;
+    }
 }

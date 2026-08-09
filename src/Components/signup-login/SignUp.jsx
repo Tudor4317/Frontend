@@ -86,9 +86,10 @@ export default function SignUpForm(){
             {errors.root && (<div className={SignupCss.error}>{errors.root.message}</div>)}
 
             <button disabled={isSubmitting}  className={SignupCss.btn} type="submit">{isSubmitting ? "Loading" : "Sign up now !"}</button>
-            <button type="button" onClick={() => navigate("/login")}   className={SignupCss.redirect} >I already have an account </button>
+             <button type="button" onClick={() => navigate("/login")}   className={SignupCss.redirect} >I already have an account </button>
               
         </form>
+        
         </section>
         </main>
     )

@@ -1,0 +1,588 @@
+.page {
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding:
+        3rem 4rem;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(82, 73, 220, 0.12),
+            transparent 45%
+        ),
+        #0b0d11;
+
+    color: #f4f4f7;
+}
+
+
+.header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 2rem;
+}
+
+
+.eyebrow {
+
+    margin:
+        0 0 0.45rem;
+
+    color: #777b8c;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+}
+
+
+.header h1 {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
+}
+
+
+.subtitle {
+
+    margin:
+        0.55rem 0 0;
+
+    color: #7d808d;
+
+    font-size: 0.9rem;
+}
+
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    padding:
+        0.55rem 0.8rem;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 999px;
+
+    color: #858997;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+}
+
+
+.status span {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #57d89a;
+
+    box-shadow:
+        0 0 12px
+        rgba(87, 216, 154, 0.6);
+}
+
+
+/* =========================================
+   UPLOAD CARDS
+========================================= */
+
+.uploadGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 1rem;
+}
+
+
+.fragmentCard {
+
+    min-width: 0;
+
+    padding: 1rem;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+.cardHeader {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 0.8rem;
+}
+
+
+.cardHeader span {
+
+    color: #737784;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.cardHeader h2 {
+
+    max-width: 350px;
+
+    margin:
+        0.35rem 0 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 0.9rem;
+}
+
+
+.cardHeader b {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    color: #777b89;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================
+   FILE INPUT
+========================================= */
+
+.dropzone {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.8rem;
+
+    margin-top: 0.8rem;
+
+    padding: 1rem;
+
+    border:
+        1px dashed
+        rgba(255, 255, 255, 0.14);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+
+.dropzone:hover {
+
+    border-color:
+        rgba(112, 101, 255, 0.7);
+
+    background:
+        rgba(112, 101, 255, 0.05);
+}
+
+
+.dropzone input {
+
+    display: none;
+}
+
+
+.uploadIcon {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 7px;
+
+    background:
+        rgba(100, 90, 255, 0.12);
+
+    color: #8178ff;
+
+    font-size: 1.1rem;
+}
+
+
+.dropzone strong {
+
+    display: block;
+
+    font-size: 0.78rem;
+}
+
+
+.dropzone small {
+
+    display: block;
+
+    margin-top: 0.2rem;
+
+    color: #696d7a;
+
+    font-size: 0.67rem;
+}
+
+
+/* =========================================
+   CONTROL BAR
+========================================= */
+
+.controlBar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 1rem;
+
+    padding:
+        1rem 1.2rem;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 14px;
+
+    background: #111319;
+}
+
+
+.controlBar div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.25rem;
+}
+
+
+.controlLabel {
+
+    color: #676b79;
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.controlBar strong {
+
+    font-size: 0.82rem;
+}
+
+
+.controlBar button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding:
+        0.8rem 1.25rem;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6559f5,
+            #4b40d8
+        );
+
+    color: white;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px
+        rgba(82, 69, 230, 0.25);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.controlBar button:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(82, 69, 230, 0.35);
+}
+
+
+.controlBar button:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error {
+
+    margin-top: 1rem;
+
+    padding: 1rem;
+
+    border:
+        1px solid
+        rgba(255, 80, 80, 0.15);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 50, 50, 0.05);
+
+    color: #ff7777;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.results {
+
+    margin-top: 1rem;
+
+    padding: 1.3rem;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 16px;
+
+    background: #111319;
+}
+
+
+.sectionTitle {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 1rem;
+}
+
+
+.sectionTitle span,
+.alignmentHeader span {
+
+    color: #676b79;
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+}
+
+
+.sectionTitle h2,
+.alignmentHeader h2 {
+
+    margin:
+        0.3rem 0 0;
+
+    font-size: 1rem;
+}
+
+
+.sectionTitle p {
+
+    margin: 0;
+
+    color: #676b79;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================
+   ALIGNMENT
+========================================= */
+
+.alignment {
+
+    margin-top: 1rem;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #090b0f;
+}
+
+
+.alignmentHeader {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        1rem 1.2rem;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    color: #777b87;
+
+    font-size: 0.7rem;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .page {
+
+        padding:
+            2rem 1rem;
+    }
+
+
+    .uploadGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 1rem;
+    }
+
+
+    .controlBar {
+
+        align-items: stretch;
+
+        flex-direction: column;
+
+        gap: 1rem;
+    }
+
+}

@@ -1,0 +1,126 @@
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: .7rem;
+}
+
+
+.card,
+.cardActive {
+    min-width: 0;
+
+    padding: 1rem;
+
+    border: 1px solid
+        rgba(255,255,255,.06);
+
+    border-radius: 11px;
+
+    background: #0b0d11;
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        border-color .2s,
+        background .2s;
+}
+
+
+.card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255,255,255,.15);
+}
+
+
+.cardActive {
+    border-color: #7167ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(91,80,230,.15),
+            rgba(20,21,30,.9)
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(90,78,230,.12);
+}
+
+
+.card > span,
+.cardActive > span {
+    display: block;
+
+    margin-bottom: .7rem;
+
+    color: #696d7a;
+
+    font-size: .58rem;
+    font-weight: 700;
+
+    letter-spacing: .08em;
+}
+
+
+.card > strong,
+.cardActive > strong {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: #65dff7;
+
+    font-size: 1.6rem;
+
+    letter-spacing: -.04em;
+}
+
+
+.card div,
+.cardActive div {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: .55rem;
+    margin-top: .55rem;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+}
+
+
+.card small,
+.cardActive small {
+    color: #555966;
+
+    font-size: .52rem;
+}
+
+
+.card b,
+.cardActive b {
+    color: #a0a3ae;
+
+    font-size: .6rem;
+}
+
+
+@media (max-width: 1100px) {
+
+    .grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}

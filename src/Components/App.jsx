@@ -14,7 +14,10 @@ import Workshop from "./other/Workshop"
 import Upload from "./protected/Upload"
 import Preview from "./other/ArtefactPreview"
 import Artefact from "../reusable-components/Dashboard-components/ArtefactsDisplay"
-
+import MyProfilePage from "./other/MyProfilePage"
+import ArtifactMatcher from "./other/Matching/ArtifactMatcher"
+import Settings from "./other/Settings/Settings"
+import Credits from "./other/Settings/panels/Credits"
 export function App(){
 
     return(
@@ -24,24 +27,42 @@ export function App(){
                  <Route index element={<Home />} />
                
 
-                <Route path="login" element={<LogIn />} />
-                <Route path="signup" element={<SignUpForm />} />
+                <Route path={"login"} element={<LogIn />} />
+                <Route path={"signup"} element={<SignUpForm />} />
 
-                <Route path="profile/:username" element={<ProfilePage />} />
+                <Route path={"profile/:username"} element={<ProfilePage />} />
  
                 <Route element={<CheckAuth/>}> 
-                <Route path="home/upload" element={<Upload />} />
-                <Route path="home/workshop/:artefactId" element={<Workshop />} />
+                
 
-                <Route path="home/dashboard" element={<Dashboard/>}>
 
+
+                <Route path={"home/upload"} element={<Upload />} />
+                <Route path={"home/workshop/:artefactId"} element={<Workshop />} />
+                <Route path={"home/preview/:artefactId"} element={<Preview />} />
+                <Route path={"home/myprofile"} element={<MyProfilePage />}/>
+                
+
+
+                 <Route path={"home/settings"} element={<Settings />}>
+                 
+                <Route path={"credits"} element={<Credits />} />
+                 
+                 </Route>
+               
+
+
+                <Route path={"home/dashboard"} element={<Dashboard/>}>
+
+               <Route path={"matching"} element={<ArtifactMatcher/>} />
                 <Route path={"artefacts"} element={<Artefact />} />
                 <Route path={"search"}  element={<GlobalSearch />} />
-                <Route path={"settings"} element={<Artefact />} />
+               
+                
 
                 </Route>
 
-                <Route path="home/preview" element={<Preview />} />
+                
 
                  </Route> 
 

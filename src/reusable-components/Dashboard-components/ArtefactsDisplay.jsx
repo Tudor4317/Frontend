@@ -75,7 +75,9 @@ return(<>
   
 
    {(artefact.map((values) =>{return <article className={ArtefactCss.artefact} key={values.artefactId}>Artefact Name : {values.artefact} <button  onClick={() => navigate(`/home/workshop/${values.artefactId}`)} className={ArtefactCss.view}>View</button></article>}))}
-
+       <button onClick={() => navigate("/home/upload")} className={ArtefactCss.btn}>
+           upload →
+           </button>
 </div>
   
 

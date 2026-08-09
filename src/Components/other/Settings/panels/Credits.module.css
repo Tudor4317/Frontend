@@ -1,0 +1,91 @@
+.container {
+    width: min(900px, calc(100% - 2rem));
+    min-height: calc(100vh - 100px);
+
+    margin: 0 auto;
+    padding: 4rem 2rem;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    text-align: center;
+}
+
+
+.title {
+    margin: 0 0 3rem;
+
+    color: white;
+
+    font-family: monospace;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    max-width: 800px;
+}
+
+
+.name {
+    width: min(600px, 100%);
+
+    margin: 0.6rem 0;
+    padding: 1.2rem 1.5rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 400;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.name:hover {
+    border-color: rgba(37, 189, 233, 0.4);
+
+    background: rgba(37, 189, 233, 0.06);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 3rem 1rem;
+    }
+
+    .title {
+        margin-bottom: 2rem;
+
+        font-size: 2rem;
+    }
+
+    .name {
+        padding: 1rem;
+
+        font-size: 0.85rem;
+    }
+}

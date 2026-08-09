@@ -1,55 +1,93 @@
 .container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+
+
+.container form {
     width: min(900px, 100%);
 
-    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 1rem;
+
+    padding: 2rem;
 
     box-sizing: border-box;
 
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 24px;
+    border-radius: 20px;
 
-    background: rgba(5, 4, 20, 0.88);
+    background: rgba(5, 4, 20, 0.85);
 
-    box-shadow:
-        0 0 35px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 
 
 
-.container form {
+.important,
+.optionalinfo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    min-width: 0;
+}
+
+.important {
+    padding-right: 1.5rem;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.optionalinfo {
+    padding-left: 1.5rem;
+}
+
+
+
+
+
+.field {
     width: 100%;
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
 
-    grid-template-columns: 1fr 1fr;
-
-    gap: 1.4rem 1.5rem;
-
-    align-items: start;
+    gap: 0.35rem;
 }
 
 
 
 .bracket {
     width: 100%;
-    height: 60px;
-
-    padding: 0 1.2rem;
+    min-height: 45px;
 
     box-sizing: border-box;
 
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.035);
+    background: rgba(255, 255, 255, 0.04);
 
     color: white;
 
     font-family: monospace;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 
     transition:
         border-color 0.2s ease,
@@ -58,69 +96,101 @@
 }
 
 .bracket::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.35);
 }
 
 .bracket:focus {
-    border-color: #25bde9;
+    border-color: rgba(37, 189, 233, 0.6);
 
     background: rgba(37, 189, 233, 0.04);
 
-    box-shadow:
-        0 0 15px rgba(37, 189, 233, 0.15);
+    box-shadow: 0 0 12px rgba(37, 189, 233, 0.08);
 }
 
 
 
+.file {
+    width: 100%;
+    min-height: 45px;
 
-input[type="file"].bracket {
-    height: auto;
+    box-sizing: border-box;
 
-    padding: 1rem;
+    padding: 0.35rem;
 
-    border: 1px dashed rgba(37, 189, 233, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
 
-    cursor: pointer;
-}
+    background: rgba(255, 255, 255, 0.04);
 
-input[type="file"]::file-selector-button {
-    margin-right: 1rem;
-
-    padding: 0.55rem 0.9rem;
-
-    border: none;
-    border-radius: 7px;
-
-    background: #25bde9;
-
-    color: white;
+    color: rgba(255, 255, 255, 0.55);
 
     font-family: monospace;
+    font-size: 0.8rem;
 
     cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
 }
+
+.file:hover {
+    border-color: rgba(37, 189, 233, 0.4);
+    background: rgba(37, 189, 233, 0.04);
+}
+
+.file::file-selector-button {
+    margin-right: 0.8rem;
+
+    padding: 0.55rem 0.85rem;
+
+    border: 1px solid rgba(37, 189, 233, 0.35);
+    border-radius: 7px;
+
+    background: rgba(37, 189, 233, 0.08);
+
+    color: #25bde9;
+
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.file::file-selector-button:hover {
+    background: #25bde9;
+    border-color: #25bde9;
+
+    color: white;
+}
+
 
 
 .visibility {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
 
-    min-height: 60px;
+    gap: 0.7rem;
+
+    min-height: 35px;
 }
 
 .sign {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.7);
 
     font-family: monospace;
-    font-size: 0.9rem;
-
-    cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .tick {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
 
     margin: 0;
 
@@ -131,54 +201,54 @@ input[type="file"]::file-selector-button {
 
 
 
+.optional {
+   
+    display: flex;
+    align-items: center;
 
-button.bracket {
-    grid-column: 1 / -1;
+    gap: 0.7rem;
 
-    height: 60px;
+    margin-bottom: 0.2rem;
 
-    border: none;
+    color: #25bde9;
 
-    background: #25bde9;
-
-    color: white;
-
+    font-family: monospace;
+    font-size: 0.75rem;
     font-weight: bold;
 
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
 }
 
-button.bracket:hover {
-    background: #32c5ef;
+.optional::after {
+    content: "";
 
-    transform: translateY(-2px);
+    flex: 1;
 
-    box-shadow:
-        0 0 20px rgba(37, 189, 233, 0.35);
-}
+    height: 1px;
 
-button.bracket:disabled {
-    opacity: 0.55;
-
-    cursor: not-allowed;
-
-    transform: none;
-
-    box-shadow: none;
+    background: rgba(37, 189, 233, 0.25);
 }
 
 
 
 
 .error {
-    margin: -0.8rem 0 0;
+    width: 100%;
 
-    color: #ff7070;
+    color: #ff6b6b;
+
+    font-family: monospace;
+    font-size: 0.7rem;
+    line-height: 1.3;
+
+    overflow-wrap: anywhere;
+}
+
+.rootError {
+    grid-column: 1 / -1;
+
+    color: #ff6b6b;
 
     font-family: monospace;
     font-size: 0.75rem;
@@ -187,21 +257,69 @@ button.bracket:disabled {
 
 
 
+form > button {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-height: 45px;
+
+    margin-top: 0.5rem;
+
+    border: 1px solid rgba(37, 189, 233, 0.4);
+    border-radius: 9px;
+
+    background: rgba(37, 189, 233, 0.1);
+
+    color: #25bde9;
+
+    font-family: monospace;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+form > button:hover {
+    background: #25bde9;
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+form > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+
 @media (max-width: 700px) {
-
-    .container {
-        padding: 1.5rem;
-
-        border-radius: 18px;
-    }
 
     .container form {
         grid-template-columns: 1fr;
 
-        gap: 1.2rem;
+        column-gap: 0;
+
+        padding: 1.5rem;
     }
 
-    button.bracket {
+    .important {
+        padding-right: 0;
+
+        border-right: none;
+    }
+
+    .optionalinfo {
+        padding-left: 0;
+    }
+
+    form > button {
         grid-column: auto;
     }
 }

@@ -1,9 +1,10 @@
 .login {
-    width: min(100% - 2rem, 100vw);
+    width: 100%;                    /* Changed: 100% instead of min(100% - 2rem, 100vw) */
+    max-width: 100%;                /* Add this to prevent overflow */
     min-height: calc(100vh - 100px);
 
     margin: 0 auto;
-    padding: 2rem 0 4rem;
+    padding: 2rem 1rem 4rem;        /* Adjusted padding for better mobile spacing */
 
     display: flex;
     flex-direction: column;
@@ -11,162 +12,103 @@
     color: white;
 }
 
-
-
 .title {
     margin: 0;
-
     text-align: center;
-
     font-size: clamp(3.5rem, 7vw, 6rem);
     font-weight: 700;
-
     color: white;
 }
-
-
-
 
 .container {
     width: 100%;
     max-width: 1000px;
-
+    padding: 0 1rem;                /* Add horizontal padding here instead */
     margin: 4rem auto 0;
+    box-sizing: border-box;         /* Include padding in width calculation */
 }
-
-
 
 .container form {
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     gap: 2.5rem;
 }
 
-
-
 .bracket {
-    width: 555px;
-    max-width: 100%;
-
+    width: 100%;                    /* Changed: full width instead of 555px */
+    max-width: 555px;               /* Use max-width for the desired size */
     height: 95px;
-
     padding: 0 1.7rem;
-
     border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 22px;
-
     outline: none;
-
     background: rgba(255, 255, 255, 0.035);
-
     color: white;
-
     font-family: monospace;
     font-size: 2rem;
-
     box-sizing: border-box;
-
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
         background 0.2s ease;
 }
 
-
 .bracket::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
-
 .bracket:focus {
     border-color: #25bde9;
-
     background: rgba(255, 255, 255, 0.06);
-
-    box-shadow:
-        0 0 15px rgba(37, 189, 233, 0.2);
+    box-shadow: 0 0 15px rgba(37, 189, 233, 0.2);
 }
 
-
-
 .btn {
-    min-width: 330px;
+    width: 100%;                    /* Changed: full width */
+    max-width: 330px;               /* Use max-width for the desired size */
     height: 85px;
-
     padding: 0 1.5rem;
-
     border: none;
     border-radius: 22px;
-
     background: #25bde9;
-
     color: white;
-
     font-family: monospace;
     font-size: 1.5rem;
-
     cursor: pointer;
-
+    box-sizing: border-box;         /* Add this */
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
         background 0.2s ease;
 }
 
-
 .btn:hover {
     background: #32c5ef;
-
     transform: translateY(-2px);
-
-    box-shadow:
-        0 0 25px rgba(37, 189, 233, 0.45);
+    box-shadow: 0 0 25px rgba(37, 189, 233, 0.45);
 }
-
 
 .btn:active {
     transform: translateY(0);
 }
 
-
 .btn:disabled {
     opacity: 0.6;
-
     cursor: not-allowed;
-
     transform: none;
-
     box-shadow: none;
 }
 
-
-
-
-
-
-
-
-
-
-
 .error {
     margin-top: -2rem;
-
     color: #ff7070;
-
     font-family: monospace;
     font-size: 0.85rem;
 }
 
-
-
-
 @media (max-width: 800px) {
-
     .title {
         font-size: 4rem;
     }
@@ -176,16 +118,13 @@
     }
 
     .bracket {
-        width: 100%;
         height: 80px;
-
         font-size: 1.5rem;
     }
 
     .btn {
-        min-width: 280px;
+        max-width: 280px;            /* Changed: use max-width */
         height: 70px;
-
         font-size: 1.2rem;
     }
 
@@ -195,14 +134,9 @@
     }
 }
 
-
-
-
 @media (max-width: 600px) {
-
     .signup {
         width: calc(100% - 2rem);
-
         padding-top: 1.5rem;
     }
 
@@ -212,6 +146,7 @@
 
     .container {
         margin-top: 2.5rem;
+        padding: 0 1rem;            /* Ensure padding on mobile */
     }
 
     .container form {
@@ -220,28 +155,22 @@
 
     .bracket {
         height: 65px;
-
         padding: 0 1rem;
-
         border-radius: 16px;
-
         font-size: 1.1rem;
     }
 
     .btn {
         width: 100%;
-        min-width: 0;
+        max-width: 100%;            /* Full width on mobile */
         height: 65px;
-
         border-radius: 16px;
-
         font-size: 1rem;
     }
 
     .redirect {
         margin: 0;
         align-self: center;
-
         font-size: 0.9rem;
     }
 

@@ -4,10 +4,10 @@ import ProfileCss from "./ProfilePage.module.css"
 
 const ProfilePage = () =>{
 
-
+    const navigate = useNavigate()
     const [error,setError] = useState({state : false, message : {}})
     const [user,setUser] = useState(null)
-    const username = useParams()
+    const {username} = useParams()
    
 useEffect(() =>{
 
@@ -77,7 +77,7 @@ return (
 
     <section className={ProfileCss.artefacts}>
 
-        {user.data.artefacts.map((artefact) =>{return  <article onClick={() => null} className={ProfileCss.artefact} key={artefact.artefactId}><p>{artefact.artefact}</p></article>})}
+        {user.data.artefacts.map((artefact) =>{return  <article onClick={() => navigate(`/home/preview/${artefact.artefactId}`)} className={ProfileCss.artefact} key={artefact.artefactId}><p>{artefact.artefact}</p></article>})}
 
     </section>
     </main>
