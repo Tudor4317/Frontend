@@ -257,7 +257,7 @@
 
 
 
-form > button {
+.area > .btn {
     grid-column: 1 / -1;
 
     width: 100%;
@@ -283,14 +283,14 @@ form > button {
         transform 0.2s ease;
 }
 
-form > button:hover {
+.area > .btn:hover {
     background: #25bde9;
     color: white;
 
     transform: translateY(-2px);
 }
 
-form > button:disabled {
+.area > .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 

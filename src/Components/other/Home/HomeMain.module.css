@@ -26,6 +26,9 @@
   background: rgba(255, 255, 255, 0.08);
 
   text-align: center;
+
+  opacity: 0;
+  animation: fadeSlideDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .intro p {
@@ -54,6 +57,10 @@
   color: white;
   font-size: 2rem;
   text-align: center;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.1s;
 }
 
 .reasons {
@@ -87,13 +94,14 @@
   text-align: center;
 
   transition:
-    background 0.3s ease,
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
+    background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
   animation: scrollBlur linear both;
   animation-timeline: view();
-  animation-range: entry 0% exit 100%;
+  animation-range: entry 0% cover 40%;
+  will-change: opacity, transform, filter;
 }
 
 .reason h2 {
@@ -120,33 +128,31 @@
 .two {
   border-color: #20b86b;
 }
-/* =========================
-   MOBILE
-   ========================= */
+
 
 .three {
   border-color: #5795e8;
 }
 
 
-/* Hover */
+
 
 .one:hover {
   background: rgba(114, 81, 201, 0.45);
   box-shadow: 0 0 25px rgba(114, 81, 201, 0.45);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 .two:hover {
   background: rgba(32, 184, 107, 0.45);
   box-shadow: 0 0 25px rgba(32, 184, 107, 0.45);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 .three:hover {
   background: rgba(87, 149, 232, 0.45);
   box-shadow: 0 0 25px rgba(87, 149, 232, 0.45);
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.01);
 }
 
 
@@ -157,6 +163,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  opacity: 0;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.15s;
 }
 
 .join h1 {
@@ -201,17 +211,57 @@
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease;
 }
 
 .joinContent button:hover {
-  transform: translateY(-2px);
+  background: #32c5ef;
+  transform: translateY(-3px);
   box-shadow: 0 0 20px rgba(37, 189, 233, 0.5);
+}
+
+.joinContent button:active {
+  transform: translateY(-1px);
 }
 
 
 
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollBlur {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
 
 
 
@@ -297,8 +347,13 @@
 
 
 @media (prefers-reduced-motion: reduce) {
+  .intro,
+  .title,
+  .join,
   .reason {
     animation: none;
     transition: none;
+    opacity: 1;
+    filter: none;
   }
 }

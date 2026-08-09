@@ -84,7 +84,7 @@ const PushArtefacts = () =>{
 
     return (
         <div className={Pushcss.container} >
-            <form onSubmit={handleSubmit(onSubmit)} >
+            <form className={Pushcss.area} onSubmit={handleSubmit(onSubmit)} >
         
 
 
@@ -156,7 +156,7 @@ const PushArtefacts = () =>{
         </div>
         </div>
 
-        <button className={Pushcss.bracket} disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
+        <button className={Pushcss.btn} disabled={isSubmitting} type="submit">{isSubmitting ? "Loading..." : "Send"}</button>
        
         {errors.root && <div className={Pushcss.error}>{errors.root.message}</div>}
            
