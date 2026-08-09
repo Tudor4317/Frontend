@@ -74,7 +74,7 @@ return (
     <main className={ProfileCss.container}>
 
     <section className={ProfileCss.info}>
-         <img className={ProfileCss.image} src=""></img>
+         <img className={ProfileCss.image} ></img>
         <h1 className={ProfileCss.username}>{user.data.username}</h1>
         <p className={ProfileCss.description}>{user.data.description || "No description available"}</p>
         <button onClick={() => navigate("/home/settings/credits")} className={ProfileCss.btn}>Edit profile</button>

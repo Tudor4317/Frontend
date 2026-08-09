@@ -63,7 +63,7 @@ const {userData,setUserData} = useUserDataContext()
         
         }
         catch(err){
-            console.log(err)
+            console.log(err.message)
             setError("root", {
                 message : err.message || "Unexpected error"
             })
